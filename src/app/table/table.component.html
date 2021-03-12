@@ -1,0 +1,22 @@
+<div class="content">
+
+  <mat-spinner *ngIf="isLoading"></mat-spinner>
+  <mat-list *ngIf="!isLoading">
+    <mat-list-item>
+      <mat-list-item> L'heure </mat-list-item>
+      <mat-list-item> Prix </mat-list-item>
+    </mat-list-item>
+    <mat-list-item *ngFor="let item of presentGroup">
+      <mat-list-item>
+        {{ item.time }}
+      </mat-list-item>
+      <mat-list-item>
+        {{ item.price }}
+      </mat-list-item>
+    </mat-list-item>
+  </mat-list>
+  <mat-paginator [length]="length"
+                 [pageSize]="pageSize"
+                 (page)="changePage($event)">
+  </mat-paginator>
+</div>
